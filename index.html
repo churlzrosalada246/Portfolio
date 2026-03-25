@@ -35,6 +35,16 @@
             <p style="font-size: 1rem; margin-top: 20px;">
                 A passionate 2nd year IT student at Ateneo de Davao University with a strong foundation in web development and software engineering. Currently exploring full-stack development and building practical projects to strengthen my technical skills.
             </p>
+            
+            <!-- CTA Buttons -->
+            <div class="cta-buttons" style="margin-top: 40px;">
+                <a href="#projects" class="btn btn-primary btn-lg">
+                    <i class="fas fa-laptop-code"></i> View Projects
+                </a>
+                <a href="#skills" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-star"></i> My Skills
+                </a>
+            </div>
         </div>
     </section>
 
@@ -60,6 +70,13 @@
                 <div class="degree">Year 2 (In Progress)</div>
                 <p>Ateneo de Davao University</p>
                 <div class="period">2025 - Present</div>
+            </div>
+
+            <!-- Navigation to Next Section -->
+            <div class="section-nav" style="margin-top: 50px; text-align: center;">
+                <a href="#projects" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-down"></i> Explore My Projects
+                </a>
             </div>
         </div>
     </section>
@@ -206,6 +223,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Navigation to Next Section -->
+            <div class="section-nav" style="margin-top: 50px; text-align: center;">
+                <a href="#skills" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-down"></i> Check My Skills
+                </a>
             </div>
         </div>
     </section>
@@ -412,6 +436,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Back to Top Button -->
+            <div class="section-nav" style="margin-top: 50px; text-align: center;">
+                <a href="#home" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-up"></i> Back to Top
+                </a>
+            </div>
         </div>
     </section>
 
@@ -468,6 +499,27 @@
         }, observerOptions);
 
         skillBars.forEach(bar => observer.observe(bar));
+
+        // Add active state to navigation links
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
